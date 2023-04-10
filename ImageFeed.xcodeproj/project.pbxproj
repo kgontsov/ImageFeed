@@ -13,6 +13,7 @@
 		4A3934A129CC78CE00BCF581 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A39349F29CC78CE00BCF581 /* Main.storyboard */; };
 		4A3934A329CC78CF00BCF581 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A3934A229CC78CF00BCF581 /* Assets.xcassets */; };
 		4A3934A629CC78CF00BCF581 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A3934A429CC78CF00BCF581 /* LaunchScreen.storyboard */; };
+		4A9CD44329E3F7AF0044B266 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9CD44229E3F7AF0044B266 /* UIColor+Extensions.swift */; };
 		4AD6BD2129DEF695005BF803 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD6BD2029DEF695005BF803 /* ImagesListCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,9 @@
 		4A3934A229CC78CF00BCF581 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A3934A529CC78CF00BCF581 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A3934A729CC78CF00BCF581 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A9CD44229E3F7AF0044B266 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		4A9CD44529E3FCF50044B266 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
+		4A9CD44629E3FCF50044B266 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		4AD6BD2029DEF695005BF803 /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,11 +66,22 @@
 				4A39349B29CC78CE00BCF581 /* SceneDelegate.swift */,
 				4AD6BD2229DEF6BC005BF803 /* ImageList */,
 				4A39349F29CC78CE00BCF581 /* Main.storyboard */,
+				4A9CD44429E3FC7A0044B266 /* Resources */,
+			);
+			path = ImageFeed;
+			sourceTree = "<group>";
+		};
+		4A9CD44429E3FC7A0044B266 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4A9CD44629E3FCF50044B266 /* SF-Pro-Display-Bold.otf */,
+				4A9CD44529E3FCF50044B266 /* SF-Pro-Display-Regular.otf */,
 				4A3934A229CC78CF00BCF581 /* Assets.xcassets */,
+				4A9CD44229E3F7AF0044B266 /* UIColor+Extensions.swift */,
 				4A3934A429CC78CF00BCF581 /* LaunchScreen.storyboard */,
 				4A3934A729CC78CF00BCF581 /* Info.plist */,
 			);
-			path = ImageFeed;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		4AD6BD2229DEF6BC005BF803 /* ImageList */ = {
@@ -150,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A39349E29CC78CE00BCF581 /* ImagesListViewController.swift in Sources */,
+				4A9CD44329E3F7AF0044B266 /* UIColor+Extensions.swift in Sources */,
 				4AD6BD2129DEF695005BF803 /* ImagesListCell.swift in Sources */,
 				4A39349A29CC78CE00BCF581 /* AppDelegate.swift in Sources */,
 				4A39349C29CC78CE00BCF581 /* SceneDelegate.swift in Sources */,
