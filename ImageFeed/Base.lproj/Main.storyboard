@@ -26,15 +26,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="background"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="10" reuseIdentifier="ImagesListCell" rowHeight="224" id="4qW-MQ-xit" customClass="ImagesListCell" customModule="ImageFeed" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="224"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="10" reuseIdentifier="ImagesListCell" rowHeight="289" id="4qW-MQ-xit" customClass="ImagesListCell" customModule="ImageFeed" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="289"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4qW-MQ-xit" id="Zpj-DA-3SE">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4qW-MQ-xit" id="Zpj-DA-3SE">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="289"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="FG0-dg-juP" userLabel="Cell Image">
-                                                    <rect key="frame" x="16" y="0.0" width="382" height="224"/>
+                                                    <rect key="frame" x="16" y="4" width="361" height="281"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                             <integer key="value" value="16"/>
@@ -43,30 +43,39 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="27 августа 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6c-Tz-Xg7" userLabel="Date Label">
-                                                    <rect key="frame" x="32" y="192" width="97" height="16"/>
+                                                    <rect key="frame" x="28" y="254.33333333333331" width="102.33333333333333" height="15.666666666666666"/>
                                                     <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="13"/>
                                                     <color key="textColor" name="white"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmG-6d-neh" userLabel="Like Button">
-                                                    <rect key="frame" x="356" y="0.0" width="42" height="42"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmG-6d-neh" userLabel="Like Button">
+                                                    <rect key="frame" x="309" y="12" width="42" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="EQA-vW-SyH"/>
+                                                        <constraint firstAttribute="height" constant="42" id="y6Z-Ma-sDJ"/>
+                                                    </constraints>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" image="Red Like"/>
+                                                    <state key="normal" image="activeLike"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="FG0-dg-juP" firstAttribute="bottom" secondItem="N6c-Tz-Xg7" secondAttribute="bottom" constant="8" id="1Mo-TH-Edt"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="FG0-dg-juP" secondAttribute="trailing" constant="16" id="9aO-wc-1Xp"/>
-                                                <constraint firstItem="N6c-Tz-Xg7" firstAttribute="leading" secondItem="FG0-dg-juP" secondAttribute="leading" constant="8" id="AjF-ra-pm0"/>
-                                                <constraint firstItem="FG0-dg-juP" firstAttribute="leading" secondItem="Zpj-DA-3SE" secondAttribute="leadingMargin" constant="16" id="Fnj-MN-wgX"/>
-                                                <constraint firstItem="FG0-dg-juP" firstAttribute="top" secondItem="Zpj-DA-3SE" secondAttribute="topMargin" constant="4" id="XVw-KJ-bBb"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="FG0-dg-juP" secondAttribute="bottom" constant="4" id="XWq-Lx-xlJ"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="N6c-Tz-Xg7" secondAttribute="trailing" id="bTi-mT-MHf"/>
-                                                <constraint firstItem="FG0-dg-juP" firstAttribute="trailing" secondItem="gmG-6d-neh" secondAttribute="trailing" id="l5i-lH-yiZ"/>
-                                                <constraint firstItem="gmG-6d-neh" firstAttribute="top" secondItem="FG0-dg-juP" secondAttribute="top" id="xb4-H7-1Pq"/>
+                                                <constraint firstAttribute="trailing" secondItem="FG0-dg-juP" secondAttribute="trailing" constant="16" id="9aO-wc-1Xp"/>
+                                                <constraint firstItem="FG0-dg-juP" firstAttribute="leading" secondItem="Zpj-DA-3SE" secondAttribute="leading" constant="16" id="Fnj-MN-wgX"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="N6c-Tz-Xg7" secondAttribute="bottom" constant="8" id="KFI-Dy-pKl"/>
+                                                <constraint firstItem="FG0-dg-juP" firstAttribute="top" secondItem="Zpj-DA-3SE" secondAttribute="top" constant="4" id="XVw-KJ-bBb"/>
+                                                <constraint firstAttribute="bottom" secondItem="FG0-dg-juP" secondAttribute="bottom" constant="4" id="XWq-Lx-xlJ"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="N6c-Tz-Xg7" secondAttribute="trailing" constant="20" symbolic="YES" id="bTi-mT-MHf"/>
+                                                <constraint firstItem="FG0-dg-juP" firstAttribute="trailingMargin" secondItem="gmG-6d-neh" secondAttribute="trailing" id="l5i-lH-yiZ"/>
+                                                <constraint firstItem="N6c-Tz-Xg7" firstAttribute="leading" secondItem="Zpj-DA-3SE" secondAttribute="leadingMargin" constant="8" id="w9n-xY-yV1"/>
+                                                <constraint firstItem="gmG-6d-neh" firstAttribute="top" secondItem="FG0-dg-juP" secondAttribute="topMargin" id="xb4-H7-1Pq"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="background"/>
+                                        <connections>
+                                            <outlet property="cellImage" destination="FG0-dg-juP" id="Di0-U8-jT5"/>
+                                            <outlet property="dateLabel" destination="N6c-Tz-Xg7" id="tiF-Rf-1Et"/>
+                                            <outlet property="likeButton" destination="gmG-6d-neh" id="V07-sm-Jua"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -95,7 +104,7 @@
     </scenes>
     <resources>
         <image name="0" width="200" height="132"/>
-        <image name="Red Like" width="42" height="42"/>
+        <image name="activeLike" width="42" height="42"/>
         <namedColor name="background">
             <color red="0.10199999809265137" green="0.10599999874830246" blue="0.13300000131130219" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
