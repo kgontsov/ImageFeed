@@ -7,7 +7,6 @@
 
 import UIKit
 
-//test
 
 extension UIColor {
         static var ypBlue: UIColor { UIColor(named: "blue") ?? UIColor.blue }
