@@ -17,6 +17,7 @@
 		4A9CD44829E4008A0044B266 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A9CD44629E3FCF50044B266 /* SF-Pro-Display-Bold.otf */; };
 		4A9CD44929E400910044B266 /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A9CD44529E3FCF50044B266 /* SF-Pro-Display-Regular.otf */; };
 		4AB6AEF129F9590D008B5CBE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6AEF029F9590D008B5CBE /* ProfileViewController.swift */; };
+		4AB6AEF42A1F9D3F008B5CBE /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6AEF32A1F9D3F008B5CBE /* SingleImageViewController.swift */; };
 		4AD6BD2129DEF695005BF803 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD6BD2029DEF695005BF803 /* ImagesListCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		4A9CD44529E3FCF50044B266 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
 		4A9CD44629E3FCF50044B266 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		4AB6AEF029F9590D008B5CBE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4AB6AEF32A1F9D3F008B5CBE /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
 		4AD6BD2029DEF695005BF803 /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +75,7 @@
 				4A39349F29CC78CE00BCF581 /* Main.storyboard */,
 				4A9CD44429E3FC7A0044B266 /* Resources */,
 				4A3934A729CC78CF00BCF581 /* Info.plist */,
+				4AB6AEF32A1F9D3F008B5CBE /* SingleImageViewController.swift */,
 			);
 			path = ImageFeed;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				4AB6AEF129F9590D008B5CBE /* ProfileViewController.swift in Sources */,
 				4A39349E29CC78CE00BCF581 /* ImagesListViewController.swift in Sources */,
 				4A9CD44329E3F7AF0044B266 /* UIColor+Extensions.swift in Sources */,
+				4AB6AEF42A1F9D3F008B5CBE /* SingleImageViewController.swift in Sources */,
 				4AD6BD2129DEF695005BF803 /* ImagesListCell.swift in Sources */,
 				4A39349A29CC78CE00BCF581 /* AppDelegate.swift in Sources */,
 				4A39349C29CC78CE00BCF581 /* SceneDelegate.swift in Sources */,
