@@ -18,6 +18,7 @@
 		4A9CD44929E400910044B266 /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A9CD44529E3FCF50044B266 /* SF-Pro-Display-Regular.otf */; };
 		4AB6AEF129F9590D008B5CBE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6AEF029F9590D008B5CBE /* ProfileViewController.swift */; };
 		4AB6AEF42A1F9D3F008B5CBE /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6AEF32A1F9D3F008B5CBE /* SingleImageViewController.swift */; };
+		4AB6AEF62A541712008B5CBE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6AEF52A541712008B5CBE /* Constants.swift */; };
 		4AD6BD2129DEF695005BF803 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD6BD2029DEF695005BF803 /* ImagesListCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		4A9CD44629E3FCF50044B266 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		4AB6AEF029F9590D008B5CBE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4AB6AEF32A1F9D3F008B5CBE /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
+		4AB6AEF52A541712008B5CBE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4AD6BD2029DEF695005BF803 /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +72,7 @@
 			children = (
 				4A39349929CC78CE00BCF581 /* AppDelegate.swift */,
 				4A39349B29CC78CE00BCF581 /* SceneDelegate.swift */,
+				4AB6AEF52A541712008B5CBE /* Constants.swift */,
 				4AB6AEF229F9591A008B5CBE /* Profile */,
 				4AD6BD2229DEF6BC005BF803 /* ImageList */,
 				4A39349F29CC78CE00BCF581 /* Main.storyboard */,
@@ -189,6 +192,7 @@
 				4AD6BD2129DEF695005BF803 /* ImagesListCell.swift in Sources */,
 				4A39349A29CC78CE00BCF581 /* AppDelegate.swift in Sources */,
 				4A39349C29CC78CE00BCF581 /* SceneDelegate.swift in Sources */,
+				4AB6AEF62A541712008B5CBE /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
