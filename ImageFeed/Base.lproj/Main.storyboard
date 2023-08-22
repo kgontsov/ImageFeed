@@ -146,13 +146,13 @@
                         </tabBarAppearance>
                     </tabBar>
                     <connections>
-                        <segue destination="AP3-TL-BQZ" kind="relationship" relationship="viewControllers" id="DcB-9l-On9"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="YCB-Gd-W59"/>
+                        <segue destination="AP3-TL-BQZ" kind="relationship" relationship="viewControllers" id="yKJ-Ne-Cnr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8CT-KW-Deh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1052" y="-667"/>
+            <point key="canvasLocation" x="-1052" y="-644"/>
         </scene>
         <!--Profile-->
         <scene sceneID="aQN-yb-w6b">
