@@ -7,7 +7,11 @@
 
 import UIKit
 
-class AuthViewController: UIViewController {
+protocol AuthViewControllerDelegate: AnyObject {
+    func acceptToken(code: String)
+}
+
+final class AuthViewController: UIViewController {
     let showWebViewIdentifier = "ShowWebView"
     weak var delegate: AuthViewControllerDelegate?
     
@@ -34,8 +38,4 @@ extension AuthViewController: WebViewViewControllerDelegate {
     func webViewViewControllerDidCancel(_ vc: WebViewViewController) {
         dismiss(animated: true)
     }
-}
-
-protocol AuthViewControllerDelegate: AnyObject {
-    func acceptToken(code: String)
 }

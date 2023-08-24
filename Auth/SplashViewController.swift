@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SplashViewController: UIViewController {
+final class SplashViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,16 +46,13 @@ class SplashViewController: UIViewController {
 
 extension SplashViewController: AuthViewControllerDelegate {
     func acceptToken(code: String) {
-     //   ProgressHUD.show()
         OAuth2Service().fetchAuthToken(code) { result in
             switch result {
             case .success(let accessToken):
                 OAuth2TokenStorage().token = accessToken
-             //   ProgressHUD.dismiss()
                 self.switchToTabBarController()
             case .failure(let error):
                 print("Failed: \(error)")
-             //   ProgressHUD.dismiss()
                 break
             }
         }

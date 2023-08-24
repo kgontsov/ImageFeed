@@ -8,7 +8,7 @@
 import Foundation
 
 
-class OAuth2TokenStorage {
+final class OAuth2TokenStorage {
     var token: String? {
         get {
             return UserDefaults.standard.string(forKey: OAuthTokenResponseBody.CodingKeys.accessToken.rawValue)
