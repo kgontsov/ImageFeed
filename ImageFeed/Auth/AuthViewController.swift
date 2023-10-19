@@ -6,12 +6,9 @@
 //
 
 import UIKit
+import ProgressHUD
 
-protocol AuthViewControllerDelegate: AnyObject {
-    func acceptToken(code: String)
-}
-
-final class AuthViewController: UIViewController {
+class AuthViewController: UIViewController {
     let showWebViewIdentifier = "ShowWebView"
     weak var delegate: AuthViewControllerDelegate?
     
@@ -39,3 +36,8 @@ extension AuthViewController: WebViewViewControllerDelegate {
         dismiss(animated: true)
     }
 }
+
+protocol AuthViewControllerDelegate: AnyObject {
+    func acceptToken(code: String)
+}
+
