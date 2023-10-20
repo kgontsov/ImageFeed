@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SplashViewController: UIViewController {
+final class SplashViewController: UIViewController {
     
     private var profileService = ProfileService.shared
     private var profileImageService = ProfileImageService.shared

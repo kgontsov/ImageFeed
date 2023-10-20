@@ -8,7 +8,11 @@
 import UIKit
 import ProgressHUD
 
-class AuthViewController: UIViewController {
+protocol AuthViewControllerDelegate: AnyObject {
+    func acceptToken(code: String)
+}
+
+final class AuthViewController: UIViewController {
     let showWebViewIdentifier = "ShowWebView"
     weak var delegate: AuthViewControllerDelegate?
     
@@ -27,6 +31,8 @@ class AuthViewController: UIViewController {
     }
 }
 
+// MARK: - WebViewViewControllerDelegate
+
 extension AuthViewController: WebViewViewControllerDelegate {
     func webViewViewController(_ vc: WebViewViewController, didAuthenticateWithCode code: String) {
         delegate?.acceptToken(code: code)
@@ -37,7 +43,4 @@ extension AuthViewController: WebViewViewControllerDelegate {
     }
 }
 
-protocol AuthViewControllerDelegate: AnyObject {
-    func acceptToken(code: String)
-}
 
