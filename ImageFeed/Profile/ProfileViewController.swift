@@ -7,6 +7,8 @@
 
 
 import UIKit
+import WebKit
+import SwiftKeychainWrapper
 
 final class ProfileViewController: UIViewController {
     
@@ -62,8 +64,42 @@ final class ProfileViewController: UIViewController {
         profileImage.image = ProfileImageService.shared.avatar.image
     }
     
+    @objc func profileLogout() {
+        let alert = UIAlertController(title: "Пока, пока!", message: "Уверены, что хотите выйти?", preferredStyle: .alert)
+        alert.view.accessibilityIdentifier = "bye_bye"
+        let yesAction = UIAlertAction(title: "Да", style: .default) { [weak self] _ in
+            guard let self = self else { return }
+            KeychainWrapper.standard.removeAllKeys()
+            self.clean()
+            self.switchToSplashViewController()
+        }
+        yesAction.accessibilityIdentifier = "logout_yes"
+        
+        let noAction = UIAlertAction(title: "Нет", style: .cancel)
+        
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func switchToSplashViewController() {
+        let splashViewController = SplashViewController()
+        guard let window = UIApplication.shared.windows.first else { fatalError("Invalid Configuration") }
+        window.rootViewController = splashViewController
+    }
+    
+    private func clean() {
+        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+            records.forEach { record in
+                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+            }
+        }
+    }
+    
     func profileImage() -> UIImageView {
-        let profileImage = UIImageView(image: UIImage(named: "stub"))
+        let profileImage = UIImageView(image: UIImage(named: "Stub"))
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         profileImage.clipsToBounds = true
         view.addSubview(profileImage)
@@ -110,6 +146,8 @@ final class ProfileViewController: UIViewController {
         view.addSubview(logoutButton)
         logoutButton.setImage(UIImage(named: "logout_button"), for: .normal)
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
+        logoutButton.addTarget(self, action: #selector(profileLogout), for: .touchUpInside)
+        logoutButton.accessibilityIdentifier = "logout button"
         
         return logoutButton
     }
