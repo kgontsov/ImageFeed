@@ -9,12 +9,13 @@ import UIKit
 import Kingfisher
 
 final class SingleImageViewController: UIViewController {
-    var image: UIImage! {
+    var image: UIImage? {
         didSet {
             guard isViewLoaded else { return }
-            guard let image = image else { return }
-            imageView.image = image
-            rescaleAndCenterImageInScrollView(image: image)
+            if let image = image {
+                imageView.image = image
+                rescaleAndCenterImageInScrollView(image: image)
+            }
         }
     }
     
@@ -23,11 +24,11 @@ final class SingleImageViewController: UIViewController {
     
     var fullImageUrl: String?
     
-    @IBAction func didTapBackButton(_ sender: Any) {
+    @IBAction private func didTapBackButton(_ sender: Any) {
             dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func didTapShareButton(_ sender: Any) {
+    @IBAction private func didTapShareButton(_ sender: Any) {
         guard let image = image else { return }
         let shareButton = UIActivityViewController(activityItems: [image], applicationActivities: [])
         present(shareButton, animated: true, completion: nil)
@@ -87,6 +88,8 @@ final class SingleImageViewController: UIViewController {
                     self.showError()
                 }
             }
+        } else {
+            showError()
         }
     }
 }

@@ -36,7 +36,7 @@ final class ImagesListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showSingleImageSegueIdentifier {
             let viewController = segue.destination as! SingleImageViewController
-            let indexPath = sender as! IndexPath // 3
+            let indexPath = sender as! IndexPath 
             viewController.fullImageUrl = photos[indexPath.row].fullImageUrl
         } else {
             super.prepare(for: segue, sender: sender)
@@ -72,7 +72,7 @@ final class ImagesListViewController: UIViewController {
         }
     }
     
-    @objc func updateTableViewAnimated() {
+    @objc private func updateTableViewAnimated() {
         let oldCount = photos.count
         let newCount = imagesListService.photos.count
         photos = imagesListService.photos
