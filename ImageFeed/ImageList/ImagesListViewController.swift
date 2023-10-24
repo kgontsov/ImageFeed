@@ -14,7 +14,6 @@ final class ImagesListViewController: UIViewController {
 
     @IBOutlet weak private var tableView: UITableView!
     
-    private let photosName: [String] = Array(0..<20).map{ "\($0)" }
     private let imagesListService = ImagesListService()
     private var photos: [Photo] = []
     
@@ -36,7 +35,7 @@ final class ImagesListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showSingleImageSegueIdentifier {
             let viewController = segue.destination as! SingleImageViewController
-            let indexPath = sender as! IndexPath 
+            guard let indexPath = sender as? IndexPath else { return }
             viewController.fullImageUrl = photos[indexPath.row].fullImageUrl
         } else {
             super.prepare(for: segue, sender: sender)
@@ -44,6 +43,7 @@ final class ImagesListViewController: UIViewController {
     }
     
     private func configCell(for cell: ImagesListCell, with indexPath: IndexPath) {
+        let photo = photos[indexPath.row]
         
         if let image = UIImage(named: "\(indexPath.row)") {
             cell.cellImage.image = image
@@ -52,12 +52,7 @@ final class ImagesListViewController: UIViewController {
         }
         
         cell.dateLabel.text = dateFormatter.string(from: Date())
-        
-        if indexPath.row % 2 == 0 {
-            cell.likeButton.imageView?.image = UIImage(named: "activeLike")
-        } else {
-            cell.likeButton.imageView?.image = UIImage(named: "inActiveLike")
-        }
+        cell.setIsLiked(photo.isLiked)
     }
     
     func tableView(
@@ -87,13 +82,11 @@ final class ImagesListViewController: UIViewController {
         }
     }
 }
-    
 
 extension ImagesListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: showSingleImageSegueIdentifier, sender: indexPath)
-
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -118,11 +111,13 @@ extension ImagesListViewController: UITableViewDataSource {
         cell.delegate = self
         let photo = photos[indexPath.row]
         
+        cell.setIsLiked(photo.isLiked)
+        
         if let url = URL(string: photo.thumbImageURL) {
             cell.cellImage.kf.indicatorType = .activity
             cell.cellImage.kf.setImage(with: url,
-                                       placeholder: UIImage(named: "Cardstublenta"),
-                                       options: []) { [weak self] result in
+                                        placeholder: UIImage(named: "Cardstublenta"),
+                                        options: []) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success(_):
@@ -131,8 +126,6 @@ extension ImagesListViewController: UITableViewDataSource {
                     } else {
                         cell.dateLabel.text = ""
                     }
-                    cell.setIsLiked(photo.isLiked)
-                    tableView.reloadRows(at: [indexPath], with: .automatic)
                 case .failure(let error):
                     print(error)
                 }
@@ -153,7 +146,6 @@ extension ImagesListViewController: ImagesListCellDelegate {
             DispatchQueue.main.async {
                 switch result {
                 case .success:
-                    cell.setIsLiked(isLiked)
                     if let index = self.photos.firstIndex(where: { $0.id == photo.id }) {
                         let currentPhoto = self.photos[index]
                         let updatedPhoto = Photo(
@@ -166,8 +158,8 @@ extension ImagesListViewController: ImagesListCellDelegate {
                             fullImageUrl: currentPhoto.fullImageUrl,
                             isLiked: !currentPhoto.isLiked
                         )
-                        self.photos.remove(at: index)
-                        self.photos.insert(updatedPhoto, at: index)
+                        self.photos[index] = updatedPhoto
+                        cell.setIsLiked(isLiked)
                     }
                 case .failure(let error):
                     print("Error changing like: \(error)")
