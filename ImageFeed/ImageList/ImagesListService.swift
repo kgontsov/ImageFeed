@@ -12,7 +12,6 @@ final class ImagesListService {
     static let didChangeNotification = Notification.Name(rawValue: "ImagesListServiceDidChange")
     
     private (set) var photos: [Photo] = []
-    private var lastLoadedPage: Int? = nil
     private var isFetching = false
     private var currentPage = 1
     private let itemsPerPage = 10
@@ -52,8 +51,9 @@ final class ImagesListService {
                     }
                     do {
                         let photoResults = try JSONDecoder().decode([PhotoResult].self, from: data)
-                        let newPhotos = photoResults.map { photoResult in
-                            return Photo(
+                        var newPhotos: [Photo] = []
+                        for photoResult in photoResults {
+                            let newPhoto = Photo(
                                 id: photoResult.id,
                                 size: CGSize(width: photoResult.width, height: photoResult.height),
                                 createdAt: self.dateFromString(photoResult.createdAt),
@@ -63,12 +63,12 @@ final class ImagesListService {
                                 fullImageUrl: photoResult.urls.full,
                                 isLiked: photoResult.likedByUser
                             )
+                            newPhotos.append(newPhoto)
                         }
                         self.photos.append(contentsOf: newPhotos)
                         NotificationCenter.default.post(name: ImagesListService.didChangeNotification, object: nil)
                         self.isFetching = false
                         self.currentPage += 1
-                        self.lastLoadedPage = self.currentPage - 1
                         UIBlockingProgressHUD.dismiss()
                     } catch {
                         print("Error decoding JSON: \(error)")

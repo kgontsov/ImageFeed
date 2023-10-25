@@ -11,7 +11,7 @@ import Kingfisher
 final class ImagesListViewController: UIViewController {
     
     private let showSingleImageSegueIdentifier = "ShowSingleImage"
-
+    
     @IBOutlet weak private var tableView: UITableView!
     
     private let imagesListService = ImagesListService()
@@ -68,17 +68,26 @@ final class ImagesListViewController: UIViewController {
     }
     
     @objc private func updateTableViewAnimated() {
-        let oldCount = photos.count
-        let newCount = imagesListService.photos.count
-        photos = imagesListService.photos
-        
-        if oldCount != newCount {
-            tableView.performBatchUpdates({
-                let indexPaths = (oldCount..<newCount).map { i in
-                    IndexPath(row: i, section: 0)
-                }
-                tableView.insertRows(at: indexPaths, with: .automatic)
-            }, completion: nil)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            let oldCount = self.photos.count
+            let newPhotos = self.imagesListService.photos
+            let uniqueNewPhotos = newPhotos.filter { newPhoto in
+                !self.photos.contains { $0.id == newPhoto.id }
+            }
+            
+            self.photos.append(contentsOf: uniqueNewPhotos)
+            let newCount = self.photos.count
+            
+            if oldCount != newCount {
+                self.tableView.performBatchUpdates({
+                    let indexPaths = (oldCount..<newCount).map { i in
+                        IndexPath(row: i, section: 0)
+                    }
+                    self.tableView.insertRows(at: indexPaths, with: .automatic)
+                }, completion: nil)
+            }
         }
     }
 }
@@ -105,14 +114,14 @@ extension ImagesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return photos.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ImagesListCell", for: indexPath) as? ImagesListCell else { fatalError("Cannot extract cell") }
         cell.delegate = self
         let photo = photos[indexPath.row]
-        
+
         cell.setIsLiked(photo.isLiked)
-        
+
         if let url = URL(string: photo.thumbImageURL) {
             cell.cellImage.kf.indicatorType = .activity
             cell.cellImage.kf.setImage(with: url,
@@ -147,18 +156,7 @@ extension ImagesListViewController: ImagesListCellDelegate {
                 switch result {
                 case .success:
                     if let index = self.photos.firstIndex(where: { $0.id == photo.id }) {
-                        let currentPhoto = self.photos[index]
-                        let updatedPhoto = Photo(
-                            id: currentPhoto.id,
-                            size: currentPhoto.size,
-                            createdAt: currentPhoto.createdAt,
-                            welcomeDescription: currentPhoto.welcomeDescription,
-                            thumbImageURL: currentPhoto.thumbImageURL,
-                            largeImageURL: currentPhoto.largeImageURL,
-                            fullImageUrl: currentPhoto.fullImageUrl,
-                            isLiked: !currentPhoto.isLiked
-                        )
-                        self.photos[index] = updatedPhoto
+                        self.photos[index].isLiked = isLiked
                         cell.setIsLiked(isLiked)
                     }
                 case .failure(let error):
@@ -169,5 +167,6 @@ extension ImagesListViewController: ImagesListCellDelegate {
         }
     }
 }
+
 
 
