@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A1564592AE3C6FD00F4E221 /* ImagesListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1564582AE3C6FD00F4E221 /* ImagesListService.swift */; };
 		4A39349A29CC78CE00BCF581 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A39349929CC78CE00BCF581 /* AppDelegate.swift */; };
 		4A39349C29CC78CE00BCF581 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A39349B29CC78CE00BCF581 /* SceneDelegate.swift */; };
 		4A39349E29CC78CE00BCF581 /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A39349D29CC78CE00BCF581 /* ImagesListViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A1564582AE3C6FD00F4E221 /* ImagesListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListService.swift; sourceTree = "<group>"; };
 		4A39349629CC78CE00BCF581 /* ImageFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A39349929CC78CE00BCF581 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A39349B29CC78CE00BCF581 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A1564672AE3D99D00F4E221 /* SingleImageView */ = {
+			isa = PBXGroup;
+			children = (
+				4AB6AEF32A1F9D3F008B5CBE /* SingleImageViewController.swift */,
+			);
+			path = SingleImageView;
+			sourceTree = "<group>";
+		};
 		4A39348D29CC78CE00BCF581 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +111,7 @@
 				4A4BEE832ADB1F2200F89A7C /* URLSessionExtension.swift */,
 				4AB6AEF92A72ACF8008B5CBE /* Auth */,
 				4AD6BD2229DEF6BC005BF803 /* ImageList */,
+				4A1564672AE3D99D00F4E221 /* SingleImageView */,
 				4AB6AEF229F9591A008B5CBE /* Profile */,
 				4A9CD44429E3FC7A0044B266 /* Resources */,
 				4A3934A729CC78CF00BCF581 /* Info.plist */,
@@ -139,7 +150,6 @@
 				4AB6AEF52A541712008B5CBE /* Constants.swift */,
 				4A8A95F12A8E7E8F00F2EC9F /* SplashViewController.swift */,
 				4AB6AEFA2A72AE0C008B5CBE /* WebViewViewController.swift */,
-				4AB6AEF32A1F9D3F008B5CBE /* SingleImageViewController.swift */,
 				4A8A95ED2A8E7A5700F2EC9F /* OAuth2Service.swift */,
 				4A8A95EF2A8E7A7300F2EC9F /* OAuth2TokenStorage.swift */,
 				4A4BEE852ADB207900F89A7C /* UIBlockingProgressHUD.swift */,
@@ -152,6 +162,7 @@
 			children = (
 				4A39349D29CC78CE00BCF581 /* ImagesListViewController.swift */,
 				4AD6BD2029DEF695005BF803 /* ImagesListCell.swift */,
+				4A1564582AE3C6FD00F4E221 /* ImagesListService.swift */,
 			);
 			path = ImageList;
 			sourceTree = "<group>";
@@ -188,7 +199,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					4A39349529CC78CE00BCF581 = {
@@ -253,6 +264,7 @@
 				4A4BEE862ADB207900F89A7C /* UIBlockingProgressHUD.swift in Sources */,
 				4A4BEE842ADB1F2200F89A7C /* URLSessionExtension.swift in Sources */,
 				4AD6BD2129DEF695005BF803 /* ImagesListCell.swift in Sources */,
+				4A1564592AE3C6FD00F4E221 /* ImagesListService.swift in Sources */,
 				4A39349A29CC78CE00BCF581 /* AppDelegate.swift in Sources */,
 				4A39349C29CC78CE00BCF581 /* SceneDelegate.swift in Sources */,
 				4AB6AEF82A72ACE0008B5CBE /* AuthViewController.swift in Sources */,
