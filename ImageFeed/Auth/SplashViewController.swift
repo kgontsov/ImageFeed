@@ -11,6 +11,7 @@ final class SplashViewController: UIViewController {
     
     private var profileService = ProfileService.shared
     private var profileImageService = ProfileImageService.shared
+    private var oauthService = OAuth2Service()
     
     override func viewDidLoad() {
         super.viewDidLoad()

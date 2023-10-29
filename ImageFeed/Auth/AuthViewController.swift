@@ -24,7 +24,7 @@ final class AuthViewController: UIViewController {
             let authHelper = AuthHelper()
             let webViewPresenter = WebViewPresenter(authHelper: authHelper)
             webViewViewController.presenter = webViewPresenter
-            webViewPresenter.view = webViewViewController as! any WebViewViewControllerProtocol // посмотреть потом
+            webViewPresenter.view = webViewViewController
             webViewViewController.delegate = self
         }
     }
