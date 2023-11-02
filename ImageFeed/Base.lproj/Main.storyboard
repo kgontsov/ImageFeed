@@ -30,7 +30,7 @@
                                     <constraint firstAttribute="width" constant="60" id="yI2-QG-XCw"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Authenticate" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LLz-K7-nuk">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Authenticate" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LLz-K7-nuk" userLabel="Enter Button">
                                 <rect key="frame" x="16" y="640" width="343" height="48"/>
                                 <color key="backgroundColor" name="white"/>
                                 <constraints>
