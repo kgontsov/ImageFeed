@@ -8,7 +8,7 @@
 @testable import ImageFeed
 import XCTest
 
-final class testProgressHiddenWhenOne: XCTestCase {
+final class TestProgressHiddenWhenOne: XCTestCase {
     func testProgressHiddenWhenOne() {
         //given
         let authHelper = AuthHelper()

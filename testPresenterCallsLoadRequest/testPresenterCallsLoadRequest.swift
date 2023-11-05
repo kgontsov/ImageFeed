@@ -8,7 +8,7 @@
 @testable import ImageFeed
 import XCTest
 
-final class testPresenterCallsLoadRequest: XCTestCase {
+final class TestPresenterCallsLoadRequest: XCTestCase {
     func testPresenterCallsLoadRequest() {
         //given
         let viewController = WebViewViewControllerSpy()

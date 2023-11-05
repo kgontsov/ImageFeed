@@ -8,7 +8,7 @@
 @testable import ImageFeed
 import XCTest
 
-final class testCodeFromURL: XCTestCase {
+final class TestCodeFromURL: XCTestCase {
     func testCodeFromURL() {
         //given
         var urlComponents = URLComponents(string: "https://unsplash.com/oauth/authorize/native")!

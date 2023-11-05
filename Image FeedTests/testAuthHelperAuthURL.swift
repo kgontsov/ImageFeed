@@ -8,7 +8,7 @@
 @testable import ImageFeed
 import XCTest
 
-final class testAuthHelperAuthURL: XCTestCase {
+final class TestAuthHelperAuthURL: XCTestCase {
     func testAuthHelperAuthURL() {
         //given
         let configuration = AuthConfiguration.standard

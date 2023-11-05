@@ -8,7 +8,7 @@
 @testable import ImageFeed
 import XCTest
 
-final class testProgressVisibleWhenLessThenOne: XCTestCase {
+final class TestProgressVisibleWhenLessThenOne: XCTestCase {
     func testProgressVisibleWhenLessThenOne() {
         //given
         let authHelper = AuthHelper()
