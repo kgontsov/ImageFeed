@@ -16,11 +16,12 @@ final class ProfileImageService {
     private (set) var avatar: UIImageView = UIImageView()
     
     func fetchProfileImageURL(username: String, _ completion: @escaping (Result<String, Error>) -> Void) {
-        let url = URL(string: "https://api.unsplash.com/users/\(username)?client_id=\(accessKey)")!
+        let url = URL(string: "https://api.unsplash.com/users/\(username)?client_id=\(AuthConfiguration.standard.accessKey)")!
         
         var request = URLRequest(url: url)
         request.setValue("Bearer \(OAuth2TokenStorage().token ?? "")", forHTTPHeaderField: "Authorization")
-        let task = URLSession.shared.objectTask(for: request) { (result: Result<UserResult, Error>) in
+        let task = URLSession.shared.objectTask(for: request) { [weak self] (result: Result<UserResult, Error>) in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 switch result {
                 case .success(let userResult):
@@ -28,7 +29,7 @@ final class ProfileImageService {
                     let avatarURL = URL(string: avatarURLPath)!
                     self.avatar.kf.indicatorType = .activity
                     self.avatar.kf.setImage(with: avatarURL,
-                                            placeholder: UIImage(named: "Stub"),
+                                            placeholder: UIImage(named: "placeholder"),
                                             options: [.processor(RoundCornerImageProcessor(radius: Radius.heightFraction(0.5))),
                                                       .scaleFactor(UIScreen.main.scale),
                                                       .cacheOriginalImage]) { result in
